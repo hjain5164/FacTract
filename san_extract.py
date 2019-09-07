@@ -8,7 +8,7 @@ def remove_grabage(sent):
 
 # function to get important facts 
 def get_facts(user_input):
-    text_desc = wikipedia.summary(user_input)
+    text_desc = wikipedia.page(user_input).content
     text_title = wikipedia.page(user_input).title 
 
     # facts for the above article 
