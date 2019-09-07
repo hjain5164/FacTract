@@ -12,10 +12,11 @@ sys.setdefaultencoding('utf8')
 def get_image(user_input):
     try:
         pg = wikipedia.WikipediaPage(title=user_input)
-    except:
-        p = wikipedia.search(query=user_input, suggestion=True)
-        user_input = p[0][0]
-        pg = wikipedia.WikipediaPage(title=user_input)
+    except wikipedia.exceptions.DisambiguationError:
+        # p = wikipedia.search(query=user_input, suggestion=True)
+        # user_input = p[0][1]
+        # pg = wikipedia.WikipediaPage(title=user_input)
+        return 'False'
     html_page = pg.html()
     bs = BeautifulSoup(html_page, 'html.parser')
     use_less = "//upload.wikimedia.org/wikipedia/commons/thumb/9/98/Ambox_current_red.svg/42px-Ambox_current_red.svg.png"

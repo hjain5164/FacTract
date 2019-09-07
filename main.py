@@ -28,6 +28,8 @@ def fact():
     global user_input
     user_input = request.form['user_input']
     img_url = factract.get_image(user_input)
+    if img_url is 'False':
+        return render_template('index.html', error='Disambiguation', user_input=user_input)
     card_text = make_card(user_input)
     # print card_text
     #text = sat_extract.fact_extract(user_input)
