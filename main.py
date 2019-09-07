@@ -30,7 +30,7 @@ def fact():
     img_url = factract.get_image(user_input)
     card_text = make_card(user_input)
     # print card_text
-    text = sat_extract.fact_extract(user_input)
+    #text = sat_extract.fact_extract(user_input)
     text = factract.factract(user_input).decode('utf-8')
     if text == '':
         return "Working	"
