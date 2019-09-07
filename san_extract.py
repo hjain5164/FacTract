@@ -1,0 +1,28 @@
+import summarizer # for getting a summary 
+import re # for regex 
+import wikipedia # to handdle wiki requests 
+
+# function to remove garbage texts 
+def remove_grabage(sent):
+    return [x.strip() for x in re.split('=*= [A-Za-z ]* =*=', sent) if x.split()]
+
+# function to get important facts 
+def get_facts(user_input):
+    text_desc = wikipedia.summary(user_input)
+    text_title = wikipedia.page(user_input).title 
+
+    # facts for the above article 
+    summ = summarizer.summarize(title=text_title, text=text_desc, count=5)
+
+    # clean summ from garbage values 
+    clean_list = [] # empty list for the cleaned facts
+
+    for s in summ:
+        clean_list.append(remove_grabage(s)[0].replace("\n", " "))
+    
+    # summ_txt = ' '.join(word.encode('utf-8') for word in clean_list[:10])
+    # summ_txt = summ_txt.replace(". ", ".\n\n")
+    #print clean_list
+    return clean_list
+
+#print get_facts("India")
