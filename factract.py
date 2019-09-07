@@ -1,4 +1,4 @@
-#import sat_extract
+import sat_extract
 import san_extract
 import sys
 from bs4 import BeautifulSoup
@@ -29,14 +29,13 @@ def get_image(user_input):
 
 
 def factract(user_input):
-    #	a = sat_extract.fact_extract(user_input)
+    a = sat_extract.fact_extract(user_input)
     clean_list = san_extract.get_facts(user_input)
     if clean_list == '':
         return clean_list
     b = ' '.join(word.encode('utf-8') for word in clean_list[:10])
     b = b.replace(". ", ".\n\n")
-    c = '\n' + b.decode('utf-8')
-    # a.decode('utf-8') +
+    c = a.decode('utf-8') + '\n' + b.decode('utf-8')
     c = c.replace("(listen);", "")
     return c.encode('utf-8')
     # return b
