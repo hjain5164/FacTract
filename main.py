@@ -10,11 +10,6 @@ app = Flask(__name__)
 app.secret_key = os.urandom(16)
 
 
-@app.errorhandler(400)
-def badreq(e):
-    return render_template('400.html')
-
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -51,6 +46,17 @@ def fact():
         return "Working	"
     text = text.split('\n')
     return render_template('profile.html', text=text, flag=flag, img_url=img_url, user_input=user_input, card_text=card_text)
+
+
+@app.errorhandler(404)
+def badreq(e):
+    return render_template('error.html', code=404)
+
+
+@app.errorhandler(400)
+def badreq(e):
+    return render_template('error.html', code=400)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
