@@ -76,6 +76,8 @@
                   style="border-radius: 40%; border: 1px dotted black;"
                 />
               </section>
+
+              {% if flag :-%}
               <section
                 style="border: 1px solid black; box-shadow: 6px 6px 5px black;"
               >
@@ -88,10 +90,9 @@
                 </header>
                 {% for item in card_text %}
                 <p style="font-family: 'Boogaloo', cursive;">{{ item }}</p>
-                {% endfor %} {% if error == 'Disambiguation': -%}
-                <p>Error Occured</p>
-                {%- endif %}
+                {% endfor %}
               </section>
+              {%- endif %}
             </div>
             <div class="col-8 col-12-medium imp-medium">
               <!-- Main Content -->

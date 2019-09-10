@@ -17,6 +17,8 @@ def get_image(user_input):
         # user_input = p[0][1]
         # pg = wikipedia.WikipediaPage(title=user_input)
         return 'False'
+    except Exception:
+        return 'Error'
     html_page = pg.html()
     bs = BeautifulSoup(html_page, 'html.parser')
     use_less = "//upload.wikimedia.org/wikipedia/commons/thumb/9/98/Ambox_current_red.svg/42px-Ambox_current_red.svg.png"

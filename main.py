@@ -27,17 +27,24 @@ def index():
 def fact():
     global user_input
     user_input = request.form['user_input']
+    user_input = user_input.title()
     img_url = factract.get_image(user_input)
     if img_url is 'False':
         return render_template('index.html', error='Disambiguation', user_input=user_input)
+    if img_url is 'Error':
+        return render_template('index.html', error='Exception', user_input=user_input)
     card_text = make_card(user_input)
+    # print type(card_text)
+    # print len(card_text)
     # print card_text
-    #text = sat_extract.fact_extract(user_input)
+    flag = True
+    if len(card_text) <= 2:
+        flag = False
     text = factract.factract(user_input).decode('utf-8')
     if text == '':
         return "Working	"
     text = text.split('\n')
-    return render_template('profile.html', text=text, img_url=img_url, user_input=user_input, card_text=card_text)
+    return render_template('profile.html', text=text, flag=flag, img_url=img_url, user_input=user_input, card_text=card_text)
 
 
 @app.route('/images', methods=['GET'])

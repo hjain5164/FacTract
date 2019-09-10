@@ -23,6 +23,14 @@
       >
         Try to be more Specific. Many results found for {{ user_input }}
       </p>
+      {%- endif %} {% if error == 'Exception': -%}
+
+      <p
+        style="font-size: 1.5em;font-family: 'Shadows Into Light Two', cursive; color:red;"
+      >
+        An error occured while searching for {{ user_input }} ! Please check the
+        term.
+      </p>
       {%- endif %}
       <header>
         <h1
