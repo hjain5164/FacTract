@@ -43,3 +43,4 @@ def fact_extract(user_input):
     return summ
 
 # print(fact_extract("India"))
+
