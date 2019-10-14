@@ -8,7 +8,6 @@ import wikipedia
 reload(sys)
 sys.setdefaultencoding('utf8')
 
-
 def get_image(user_input):
     try:
         pg = wikipedia.WikipediaPage(title=user_input)
@@ -41,5 +40,3 @@ def factract(user_input):
     c = a.decode('utf-8') + '\n' + b.decode('utf-8')
     c = c.replace("(listen);", "")
     return c.encode('utf-8')
-    # return b
-    #yourstring = yourstring.encode('ascii', 'ignore').decode('ascii')

@@ -42,8 +42,8 @@ def fact():
 
     # Extracts the important text from Wikipedia
     text = factract.factract(user_input).decode('utf-8')
-    if text == '':
-        return "Working	"
+    # if text == '':
+    #     return "Working	"
     text = text.split('\n')
     return render_template('profile.html', text=text, flag=flag, img_url=img_url, user_input=user_input, card_text=card_text)
 

@@ -18,8 +18,6 @@ def make_card(user_input):
     info_box = []
     for head in heads[:7]:
         info_box.append(head.get_text())
-    # print info_box
-    # non reg ex way of dealing with expressions
 
     def removeNestedParentheses(s):
         ret = ''
