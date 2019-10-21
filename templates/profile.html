@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FacTract</title>
+    <title>Facts about {{ user_input }}</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -67,8 +67,9 @@
                     {{ user_input }}
                   </h2>
                 </header>
+
                 <img
-                  src="{{ img_url }}"
+                  src="{{ img_url[0] }}"
                   alt="{{ user_input }}"
                   srcset=""
                   width="320"

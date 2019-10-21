@@ -34,6 +34,7 @@ def fact():
 
     # To get the image from Wikipedia
     img_url = factract.find_images(user_input)
+    l = len(img_url)
     print img_url
 
     # Error handling if disambiguation occurs
@@ -56,7 +57,7 @@ def fact():
     #     return "Working	"
     text = text.split('\n')
     print img_url
-    return render_template('profile.html', text=text, flag=flag, img_url=img_url[0], user_input=user_input, card_text=card_text)
+    return render_template('profile.html', text=text, length=l, flag=flag, img_url=img_url, user_input=user_input, card_text=card_text)
 
 
 @app.errorhandler(404)

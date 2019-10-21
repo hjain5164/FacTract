@@ -19,7 +19,7 @@ def find_images(user_input):
     return image_url
 
 
-def get_image(user_input):
+'''def get_image(user_input):
     try:
         pg = wikipedia.WikipediaPage(title=user_input)
     except wikipedia.exceptions.DisambiguationError:
@@ -39,6 +39,8 @@ def get_image(user_input):
         return "https://"+image.get('src')[2:]
     except:
         pass
+
+'''
 
 
 def factract(user_input):
