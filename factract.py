@@ -8,6 +8,17 @@ import wikipedia
 reload(sys)
 sys.setdefaultencoding('utf8')
 
+
+def find_images(user_input):
+    image_url = list()
+    image = wikipedia.page(user_input)
+    for i in image.images:
+        x = i.find('jpg')
+        if x != -1:
+            image_url.append(i)
+    return image_url
+
+
 def get_image(user_input):
     try:
         pg = wikipedia.WikipediaPage(title=user_input)

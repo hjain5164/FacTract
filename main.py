@@ -4,7 +4,7 @@ from flask import flash, redirect, render_template, request, session, abort, url
 import os
 import factract
 from card import make_card
-
+import wikipedia
 
 app = Flask(__name__)
 app.secret_key = os.urandom(16)
@@ -15,25 +15,35 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    global user_input
+    user_input = request.form['user_input']
+    search_list = wikipedia.search(user_input)
+    length = len(search_list)
+    return render_template('search.html', user_input=user_input, search_list=search_list)
+
+
 @app.route('/fact', methods=['GET', 'POST'])
 def fact():
     global user_input
-    user_input = request.form['user_input']
+    user_input = request.form['search_input']
 
     # To capitalize each word of the string
     user_input = user_input.title()
 
     # To get the image from Wikipedia
-    img_url = factract.get_image(user_input)
+    img_url = factract.find_images(user_input)
+    print img_url
 
     # Error handling if disambiguation occurs
-    if img_url is 'False':
+    '''if img_url is 'False':
         return render_template('index.html', error='Disambiguation', user_input=user_input)
 
     # Error handling if any other error occurs
     if img_url is 'Error':
         return render_template('index.html', error='Exception', user_input=user_input)
-
+'''
     # Create the flash Card if exits
     card_text = make_card(user_input)
     flag = True
@@ -45,7 +55,8 @@ def fact():
     # if text == '':
     #     return "Working	"
     text = text.split('\n')
-    return render_template('profile.html', text=text, flag=flag, img_url=img_url, user_input=user_input, card_text=card_text)
+    print img_url
+    return render_template('profile.html', text=text, flag=flag, img_url=img_url[0], user_input=user_input, card_text=card_text)
 
 
 @app.errorhandler(404)
