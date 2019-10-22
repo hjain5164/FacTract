@@ -7,6 +7,11 @@
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../static/css/fact.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Kaushan+Script"
@@ -67,15 +72,48 @@
                     {{ user_input }}
                   </h2>
                 </header>
-
-                <img
+                <div
+                  id="carouselIndicators"
+                  class="col carousel slide container slider-size"
+                  data-interval="300"
+                  data-ride="carousel"
+                  style="margin-top:.5px;height : 300px; width: 500px"
+                >
+                  <div class="carousel-inner">
+                    <div class="carousel-item slider-size">
+                      <img
+                        class="d-block w-100 img-size"
+                        src="../static/images/error.jpg"
+                        alt="First slide"
+                        style=" height : 300px; width: 500px"
+                      />
+                    </div>
+                    <div class="carousel-item slider-size">
+                      <img
+                        class="d-block w-100 img-size"
+                        src="../static/images/error.jpg"
+                        alt="Second slide"
+                        style=" height : 300px; width: 500px"
+                      />
+                    </div>
+                    <div class="carousel-item slider-size">
+                      <img
+                        class="d-block w-100 img-size"
+                        src="../static/images/error.jpg"
+                        alt="Third slide"
+                        style=" height : 300px; width: 500px"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!-- <img
                   src="{{ img_url[0] }}"
                   alt="{{ user_input }}"
                   srcset=""
                   width="320"
                   height="256"
                   style="border: 1px dotted black;"
-                />
+                /> -->
               </section>
 
               {% if flag :-%}
@@ -135,5 +173,8 @@
     <script src="../static/js/breakpoints.min.js"></script>
     <script src="../static/js/util.js"></script>
     <script src="../static/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
   </body>
 </html>
