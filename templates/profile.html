@@ -7,11 +7,6 @@
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../static/css/fact.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Kaushan+Script"
@@ -72,48 +67,17 @@
                     {{ user_input }}
                   </h2>
                 </header>
-                <div
-                  id="carouselIndicators"
-                  class="col carousel slide container slider-size"
-                  data-interval="300"
-                  data-ride="carousel"
-                  style="margin-top:.5px;height : 300px; width: 500px"
-                >
-                  <div class="carousel-inner">
-                    <div class="carousel-item slider-size">
-                      <img
-                        class="d-block w-100 img-size"
-                        src="../static/images/error.jpg"
-                        alt="First slide"
-                        style=" height : 300px; width: 500px"
-                      />
-                    </div>
-                    <div class="carousel-item slider-size">
-                      <img
-                        class="d-block w-100 img-size"
-                        src="../static/images/error.jpg"
-                        alt="Second slide"
-                        style=" height : 300px; width: 500px"
-                      />
-                    </div>
-                    <div class="carousel-item slider-size">
-                      <img
-                        class="d-block w-100 img-size"
-                        src="../static/images/error.jpg"
-                        alt="Third slide"
-                        style=" height : 300px; width: 500px"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <!-- <img
-                  src="{{ img_url[0] }}"
+                {% for i in img_url %}
+                <img
+                  src="{{ i }}"
                   alt="{{ user_input }}"
                   srcset=""
+                  class="mySlides"
                   width="320"
                   height="256"
                   style="border: 1px dotted black;"
-                /> -->
+                />
+                {% endfor %}
               </section>
 
               {% if flag :-%}
@@ -166,7 +130,24 @@
         &copy; 2019 | All rights reserved.
       </div>
     </div>
+    <script>
+      var slideIndex = 0;
+      carousel();
 
+      function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > x.length) {
+          slideIndex = 1;
+        }
+        x[slideIndex - 1].style.display = "block";
+        setTimeout(carousel, 2000); // Change image every 2 seconds
+      }
+    </script>
     <!-- Scripts -->
     <script src="../static/js/jquery.min.js"></script>
     <script src="../static/js/browser.min.js"></script>
