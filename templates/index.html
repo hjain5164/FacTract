@@ -14,6 +14,14 @@
     />
     <noscript><link rel="stylesheet" href="static/css/noscript.css"/></noscript>
   </head>
+  {% set x = "asdasf 13124324"%}
+  <script>
+    function sound(){
+      console.log("{{x}}");
+    }
+  </script>
+
+
   <body class="is-preload">
     <section id="header">
       {% if error == 'Disambiguation': -%}
@@ -90,10 +98,13 @@
           <div class="col-12">
             <ul class="actions">
               <li><input type="submit" value="FacTract!" /></li>
+              
+
             </ul>
           </div>
         </div>
       </form>
+      <li><input type="submit" value="Speak Now!" onclick="sound()" /></li>
     </article>
     <section id="footer">
       <ul class="icons">

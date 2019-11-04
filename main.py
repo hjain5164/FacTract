@@ -27,7 +27,7 @@ def search():
 @app.route('/fact', methods=['GET', 'POST'])
 def fact():
     global user_input
-    user_input = request.form['search_input']
+    user_input = request.form['user_input']
 
     # To capitalize each word of the string
     user_input = user_input.title()
@@ -38,15 +38,21 @@ def fact():
     print img_url
 
     # Error handling if disambiguation occurs
-    '''if img_url is 'False':
-        return render_template('index.html', error='Disambiguation', user_input=user_input)
+    if img_url is 'False':
+        search_list = wikipedia.search(user_input)
+        length = len(search_list)
+        return render_template('search.html', user_input=user_input,search_list=search_list)
 
     # Error handling if any other error occurs
     if img_url is 'Error':
         return render_template('index.html', error='Exception', user_input=user_input)
-'''
+
+
+
     # Create the flash Card if exits
     card_text = make_card(user_input)
+    print '-----------------Card Text ------------------\n'
+    print card_text
     flag = True
     if len(card_text) <= 2:
         flag = False

@@ -11,7 +11,12 @@ sys.setdefaultencoding('utf8')
 
 def find_images(user_input):
     image_url = list()
-    image = wikipedia.page(user_input)
+    try:
+        image = wikipedia.page(user_input)
+    except wikipedia.exceptions.DisambiguationError:
+        return 'False'
+    except Exception:
+        return 'Error'
     for i in image.images:
         x = i.find('jpg')
         if x != -1:
