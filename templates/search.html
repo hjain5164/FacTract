@@ -1,13 +1,14 @@
 <html>
-    <head>
-        <title>
-            Search Results for {{user_input}}
-        </title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <head>
+    <title>Search Results for {{ user_input }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="author" content="colorlib.com">
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+    <meta name="author" content="colorlib.com" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
 
     <link
       href="https://fonts.googleapis.com/css?family=Kaushan+Script"
@@ -24,128 +25,167 @@
     <link
       href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do"
       rel="stylesheet"
-    />  
+    />
     <style>
-        /* Header */
-
-    #header {
+      /* Button */
+      input[type="submit"] {
+        -moz-transition: background-color 0.35s ease-in-out,
+          color 0.35s ease-in-out;
+        -webkit-transition: background-color 0.35s ease-in-out,
+          color 0.35s ease-in-out;
+        -ms-transition: background-color 0.35s ease-in-out,
+          color 0.35s ease-in-out;
+        transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out;
+        -webkit-appearance: none;
         position: relative;
-        background-color:#172e24;
+        display: inline-block;
+        border: 0;
+        background: #172e24;
+        color: #fff;
+        text-shadow: 0 0 0.5px rgba(255, 255, 255, 0.25);
+        cursor: pointer;
+        text-decoration: none;
+        outline: 0;
+        padding: 1em 3em 1em 3em;
+        text-align: center;
+        border-radius: 3em;
+        font-weight: 400;
+      }
+
+      /* Header */
+
+      #header {
+        position: relative;
+        background-color: #172e24;
         border-bottom: solid 1px #272d30;
         box-shadow: inset 0px -1px 0px 0px #51575a;
         text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.75);
-    }
-        #header > .container {
-            position: relative;
-            min-height: 155px;
-            margin-bottom: 0%;
-        }
+      }
+      #header > .container {
+        position: relative;
+        min-height: 155px;
+        margin-bottom: 0%;
+      }
 
-        #header h1 {
-            position: absolute;
-            left: 0;
-            /* margin-bottom: 0%; */
+      #header h1 {
+        position: absolute;
+        left: 0;
+        /* margin-bottom: 0%; */
 
-            font-size: 2.75em;
-        }
+        font-size: 2.75em;
+      }
 
-            #header h1 a {
-                /* margin-bottom: 0%; */
+      #header h1 a {
+        /* margin-bottom: 0%; */
 
-                color: #fff;
-                text-decoration: none;
-            }
+        color: #fff;
+        text-decoration: none;
+      }
 
-        #header nav {
-            position: absolute;
-            right: 0;
-            bottom: 35px;
-            font-weight: 200;
-        }
+      #header nav {
+        position: absolute;
+        right: 0;
+        bottom: 35px;
+        font-weight: 200;
+      }
 
-            #header nav a {
-                color: #c6c8c8;
-                text-decoration: none;
-                font-size: 1.4em;
-                /* margin-left: 60px; */
-                outline: 0;
-            }
+      #header nav a {
+        color: #c6c8c8;
+        text-decoration: none;
+        font-size: 1.4em;
+        /* margin-left: 60px; */
+        outline: 0;
+      }
 
-                #header nav a:hover {
-                    color: #f6f8f8;
-                }
-        .subpage #header > .container {
-            margin-bottom: 0%;
+      #header nav a:hover {
+        color: #f6f8f8;
+      }
+      .subpage #header > .container {
+        margin-bottom: 0%;
 
-            height: 155px;
-        }
+        height: 155px;
+      }
+      h2 {
+        font-weight: 400;
+        font-size: 1.75em;
+        letter-spacing: 8px;
+        text-transform: uppercase;
+        line-height: 1.75em;
+        font-family: sans-serif;
+        text-align: center;
+      }
+    </style>
+  </head>
 
-    </style>        
-    </head>
-    
-    
-    <body style="background-color: #35b88f;">
-                    <!-- Header -->
-                    <section id="header">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-12">
-                            <!-- Logo -->
-                            <h1
-                              style="font-family: 'Nothing You Could Do', cursive; font-size: 55px; margin-left: 20px; letter-spacing: 5px;"
-                            >
-                              <a href="/" id="logo">FacTract !</a>
-                            </h1>
-                            <!-- <img
-                              src="./static/phat.png"
-                              style="height: 28%; width: 10%; margin-top: 8px;"
-                            /> -->
-              
-                            <!-- <nav id="nav">
-                                                      <h3 style="font-family: 'Boogaloo', cursive; font-size: 20px; margin-right: 100px;letter-spacing: 5px; color: white;"><a href="/images">>> Graphacts!!</a></h3>
-                                                  </nav> -->
-                          </div>
-                        </div>
-                      </div>
-                    </section>
-                  <div class="s01" style="background-color: #35b88f; height: 100%; margin-top: 0%;">
-        <form method="POST" action="/fact">
-        <!-- <fieldset style="height: 100%;"> -->
-        <!-- <legend>Various search results related to {{user_input}} </legend> -->
-        
-        <!-- </feildset> -->
-        <h1>Various search results related to {{user_input}} </h1>
+  <body style="background-color: #35b88f;">
+    <!-- Header -->
+    <section id="header">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <!-- Logo -->
+            <h1
+              style="font-family: 'Nothing You Could Do', cursive; font-size: 55px; margin-left: 20px; letter-spacing: 5px;"
+            >
+              <a href="/" id="logo">FacTract !</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div
+      class="s01"
+      style="background-color: #35b88f; height: 100%; margin-top: 0%;"
+    >
+      <form method="POST" action="/fact">
+
+        <h2>Various search results related to {{ user_input }}</h2>
         <div class="inner-form">
-            <div >
+          <div>
             <div style="width: 50%; float: left;">
-                   
-            {% for i in range(5)%}
-                
-                 <!-- <legend style="font-size:20px;">    -->
-                <input type ="radio" name="user_input" value="{{search_list[i]}}">{{search_list[i]}}
-                <!-- <legend> -->
-                    <br>
-                {% endfor %}
-            </div>
-            <div style="width: 50%; float: left;">
-                   
-                    {% for i in range(5,10)%}
-                
-                    <!-- <legend style="font-size:20px;">    -->
-                   <input type ="radio" name="search_input" value="{{search_list[i]}}">{{search_list[i]}}
-                   <!-- <legend> -->
-                       <br>
-                   {% endfor %}
- 
-            </div>
-            <br>
-            <!-- <div  class="input-field third-wrap">     -->
-                <input type="submit" value="Submit" class="btn-search">         
-                <!-- </div> -->
+              {% for i in range(5)%}
 
+              <!-- <legend style="font-size:20px;">    -->
+              <input
+                type="radio"
+                name="user_input"
+                value="{{ search_list[i] }}"
+              />
+              <span style="font-weight: 800; font-family: sans-serif;">
+                {{ search_list[i] }}
+              </span>
+              <!-- <legend> -->
+              <br /><br />
+              {% endfor %}
             </div>
+            <div style="width: 50%; float: left;">
+              {% for i in range(5,10)%}
+
+              <!-- <legend style="font-size:20px;">    -->
+              <input
+                type="radio"
+                name="user_input"
+                value="{{ search_list[i] }}"
+              />
+              <span style="font-weight: 800; font-family: sans-serif;">
+                {{ search_list[i] }}
+              </span>
+
+              <!-- <legend> -->
+              <br /><br />
+              {% endfor %}
+            </div>
+            <br />
+            <!-- <div  class="input-field third-wrap">     -->
+            <!-- </div> -->
+          </div>
         </div>
-        </form>
-        </div>
-    </body>
+        <input
+          type="submit"
+          value="Submit"
+          class="btn-search"
+          style="margin-left: 45%;"
+        />
+      </form>
+    </div>
+  </body>
 </html>

@@ -17,7 +17,7 @@ def index():
 
 @app.route('/search', methods=['GET', 'POST'])
 def search():
-    global user_input
+    # global user_input
     user_input = request.form['user_input']
     search_list = wikipedia.search(user_input)
     length = len(search_list)
