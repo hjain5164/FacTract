@@ -14,25 +14,25 @@
     />
     <noscript><link rel="stylesheet" href="static/css/noscript.css"/></noscript>
   </head>
-  {% set x = "asdasf 13124324"%}
-  <script>
-    function sound(){
-      console.log("{{x}}");
-    }
-  </script>
-
-
+  <script type="text/javascript">
+		function sound() {
+			console.log('Starting');
+			var SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+			const recognition = new SpeechRecognition();
+			recognition.onresult = (event) => {
+  				const speechToText = event.results[0][0].transcript;
+  				console.log(speechToText);
+          document.getElementById('text').value = speechToText;
+          console.log('Done!!!');
+          document.getElementById('search').click();
+				}
+			recognition.start();
+		}
+	</script>
   <body class="is-preload">
     <section id="header">
-      {% if error == 'Disambiguation': -%}
-
-      <p
-        style="font-size: 1.5em;font-family: 'Shadows Into Light Two', cursive; color:red;"
-      >
-        Try to be more Specific. Many results found for {{ user_input }}
-      </p>
-      {%- endif %} {% if error == 'Exception': -%}
-
+     
+      {% if error == 'Exception': -%}
       <p
         style="font-size: 1.5em;font-family: 'Shadows Into Light Two', cursive; color:red;"
       >
@@ -49,7 +49,6 @@
           >ract
         </h1>
 
-        <!-- <p>By THE ORIGINALS</p> -->
       </header>
       <footer>
         <a href="#banner" class="button style2 scrolly-middle"
@@ -77,8 +76,6 @@
       </footer>
     </section>
 
-    <!-- <div id="loading" ></div> -->
-
     <!-- Form -->
     <article class="container box style3">
       <header>
@@ -91,20 +88,19 @@
             <input
               type="text"
               class="text"
+              id="text"
               name="user_input"
               placeholder="Enter FacTract word here"
             />
           </div>
           <div class="col-12">
             <ul class="actions">
-              <li><input type="submit" value="FacTract!" /></li>
-              
-
+              <li><input type="submit" value="FacTract!" id="search" /></li>
+              <li><input type="button" value="Speak Now!" onclick="sound()" /></li>
             </ul>
           </div>
         </div>
       </form>
-      <li><input type="submit" value="Speak Now!" onclick="sound()" /></li>
     </article>
     <section id="footer">
       <ul class="icons">
@@ -114,20 +110,9 @@
         <ul class="menu">
           <span class="label"
             ><li>&copy; 2019 | All rights reserved.</li>
-            <!-- <li>Design: The Originals</li></span -->
-          <!-- > -->
         </ul>
       </div>
     </section>
-
-    <!-- Scripts -->
-    <!-- <script type="text/javascript">
-			function loading(){
-				$("#loading").show();
-				$("#content").hide();
-			}
-		</script>
-	 -->
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/jquery.scrolly.min.js"></script>
     <script src="static/js/jquery.poptrox.min.js"></script>
