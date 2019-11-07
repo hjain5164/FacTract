@@ -14,24 +14,26 @@
     />
     <noscript><link rel="stylesheet" href="static/css/noscript.css"/></noscript>
   </head>
+  
   <script type="text/javascript">
-		function sound() {
-			console.log('Starting');
-			var SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
-			const recognition = new SpeechRecognition();
-			recognition.onresult = (event) => {
-  				const speechToText = event.results[0][0].transcript;
-  				console.log(speechToText);
-          document.getElementById('text').value = speechToText;
-          console.log('Done!!!');
-          document.getElementById('search').click();
-				}
-			recognition.start();
-		}
+		//Function to detect speech and convert it to text and search the term.
+      function sound() {
+        console.log('Starting');
+        var SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+        const recognition = new SpeechRecognition();
+        recognition.onresult = (event) => {
+            const speechToText = event.results[0][0].transcript;
+            console.log(speechToText);
+            document.getElementById('text').value = speechToText;
+            console.log('Done!!!');
+            document.getElementById('search').click();
+          }
+        recognition.start();
+      }
 	</script>
   <body class="is-preload">
     <section id="header">
-     
+       <!-- If term does not exist  -->
       {% if error == 'Exception': -%}
       <p
         style="font-size: 1.5em;font-family: 'Shadows Into Light Two', cursive; color:red;"
@@ -40,6 +42,7 @@
         term.
       </p>
       {%- endif %}
+      
       <header>
         <h1
           style="font-size: 2.5em;font-family: 'Shadows Into Light Two', cursive;"

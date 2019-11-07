@@ -70,14 +70,10 @@
       #header h1 {
         position: absolute;
         left: 0;
-        /* margin-bottom: 0%; */
-
         font-size: 2.75em;
       }
 
       #header h1 a {
-        /* margin-bottom: 0%; */
-
         color: #fff;
         text-decoration: none;
       }
@@ -93,18 +89,18 @@
         color: #c6c8c8;
         text-decoration: none;
         font-size: 1.4em;
-        /* margin-left: 60px; */
         outline: 0;
       }
 
       #header nav a:hover {
         color: #f6f8f8;
       }
+
       .subpage #header > .container {
         margin-bottom: 0%;
-
         height: 155px;
       }
+
       h2 {
         font-weight: 400;
         font-size: 1.75em;
@@ -118,6 +114,7 @@
   </head>
 
   <body style="background-color: #35b88f;">
+
     <!-- Header -->
     <section id="header">
       <div class="container">
@@ -137,14 +134,11 @@
       style="background-color: #35b88f; height: 100%; margin-top: 0%;"
     >
       <form method="POST" action="/fact">
-
         <h2>Various search results related to {{ user_input }}</h2>
         <div class="inner-form">
           <div>
             <div style="width: 50%; float: left;">
               {% for i in range(5)%}
-
-              <!-- <legend style="font-size:20px;">    -->
               <input
                 type="radio"
                 name="user_input"
@@ -153,14 +147,11 @@
               <span style="font-weight: 800; font-family: sans-serif;">
                 {{ search_list[i] }}
               </span>
-              <!-- <legend> -->
               <br /><br />
               {% endfor %}
             </div>
             <div style="width: 50%; float: left;">
               {% for i in range(5,10)%}
-
-              <!-- <legend style="font-size:20px;">    -->
               <input
                 type="radio"
                 name="user_input"
@@ -169,14 +160,11 @@
               <span style="font-weight: 800; font-family: sans-serif;">
                 {{ search_list[i] }}
               </span>
-
-              <!-- <legend> -->
-              <br /><br />
+              <br />
+              <br />
               {% endfor %}
             </div>
             <br />
-            <!-- <div  class="input-field third-wrap">     -->
-            <!-- </div> -->
           </div>
         </div>
         <input

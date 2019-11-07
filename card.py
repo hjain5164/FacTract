@@ -11,7 +11,6 @@ def make_card(user_input):
         pg = wikipedia.WikipediaPage(title=user_input)
 
     pghtml = pg.html()
-
     soup = BeautifulSoup(pghtml, 'html.parser')
     table = soup.table
     heads = table.findAll('tr')
@@ -33,8 +32,6 @@ def make_card(user_input):
 
     if len(info_box) > 2:
         for x in range(7):
-            print '-----------------------'
-            print info_box[x]
             info_box[x] = removeNestedParentheses(info_box[x])
         return info_box[1:]
     else:
