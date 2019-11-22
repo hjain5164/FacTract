@@ -10,13 +10,22 @@ def make_card(user_input):
         user_input = p[0][0]
         pg = wikipedia.WikipediaPage(title=user_input)
 
-    pghtml = pg.html()
-    soup = BeautifulSoup(pghtml, 'html.parser')
-    table = soup.table
-    heads = table.findAll('tr')
+    try:
+        pghtml = pg.html()
+        soup = BeautifulSoup(pghtml, 'html.parser')
+        table = soup.table
+        heading = table.findAll('th')
+        data = table.findAll('td')
+        # heads = table.findAll('tr')
+    except:
+        return " "
     info_box = []
-    for head in heads[:7]:
-        info_box.append(head.get_text())
+
+    for h, d in zip(heading[:7], data[:7]):
+        info_box.append(h.get_text()+':  '+d.get_text())
+
+    # for head in heads[:7]:
+        # info_box.append(head.get_text())
 
     def removeNestedParentheses(s):
         ret = ''
