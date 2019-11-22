@@ -14,6 +14,7 @@ def make_card(user_input):
         pghtml = pg.html()
         soup = BeautifulSoup(pghtml, 'html.parser')
         table = soup.table
+        # row = table.findAll('tr')
         heading = table.findAll('th')
         data = table.findAll('td')
         # heads = table.findAll('tr')
@@ -38,10 +39,13 @@ def make_card(user_input):
             elif skip == 0:
                 ret += i
         return ret
-
+    print(len(info_box))
     if len(info_box) > 2:
-        for x in range(7):
+        for x in range(len(info_box)):
             info_box[x] = removeNestedParentheses(info_box[x])
         return info_box[1:]
     else:
         return " "
+
+
+print(make_card('Snapdragon'))
