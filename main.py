@@ -14,16 +14,6 @@ app.secret_key = os.urandom(16)
 def index():
     return render_template('index.html')
 
-
-# @app.route('/search', methods=['GET', 'POST'])
-# def search():
-#     # global user_input
-#     user_input = request.form['user_input']
-#     search_list = wikipedia.search(user_input)
-#     length = len(search_list)
-#     return render_template('search.html', user_input=user_input, search_list=search_list)
-
-
 @app.route('/fact', methods=['GET', 'POST'])
 def fact():
     global user_input
